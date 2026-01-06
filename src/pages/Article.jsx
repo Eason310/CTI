@@ -51,10 +51,50 @@ export default function Article() {
             <div className="mt-6 h-64 w-full rounded-2xl bg-zinc-100" />
 
             <div className="prose prose-zinc mt-8 max-w-none">
-              {post.content.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+              {post.content.map((block, i) => {
+                // string paragraphs
+                if (typeof block === "string") {
+                  return <p key={i}>{block}</p>
+                }
+
+                // safety
+                if (!block || typeof block !== "object") return null
+
+                // big numbered section title
+                if (block.type === "sectionTitle") {
+                  return (
+                    <div key={i} className="not-prose mt-10 mb-4">
+                      <div className="text-sm text-zinc-500">{block.number}</div>
+                      <h2 className="text-2xl font-semibold text-zinc-900">{block.title}</h2>
+                    </div>
+                  )
+                }
+
+                // paragraph with parts (supports bold)
+                if (block.type === "p" && Array.isArray(block.parts)) {
+                  return (
+                    <p key={i}>
+                      {block.parts.map((part, j) =>
+                        part.bold ? <strong key={j}>{part.text}</strong> : <span key={j}>{part.text}</span>
+                      )}
+                    </p>
+                  )
+                }
+
+                // normal paragraph
+                if (block.type === "p") {
+                  return <p key={i}>{block.text}</p>
+                }
+
+                // fallback (prevents blank page if you add new types later)
+                return (
+                  <pre key={i} className="not-prose text-xs whitespace-pre-wrap bg-zinc-50 p-3 rounded">
+                    {JSON.stringify(block, null, 2)}
+                  </pre>
+                )
+              })}
             </div>
+
           </article>
         </Container>
       </main>
