@@ -16,6 +16,8 @@ function Supporter({ src, alt, className = "" }) {
   )
 }
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export default function About() {
   return (
     <Layout>
@@ -52,32 +54,32 @@ export default function About() {
 
             <div className="mt-14 grid grid-cols-2 gap-x-12 gap-y-14 md:grid-cols-3">
               <Supporter
-                src="/logos/Columbia.png"
+                src={asset("logos/Columbia.png")}
                 alt="Columbia University"
                 className="max-h-[300px]"
               />
               <Supporter
-                src="/logos/SEAS.png"
+                src={asset("logos/SEAS.png")}
                 alt="Columbia Engineering"
                 className="max-h-[100px]"
               />
               <Supporter
-                src="/logos/CVP.webp"
+                src={asset("logos/CVP.webp")}
                 alt="CVP"
                 className="max-h-[72px]"
               />
               <Supporter
-                src="/logos/Soma_Capital.png"
+                src={asset("logos/Soma_Capital.png")}
                 alt="Soma Capital"
                 className="max-h-[56px]"
               />
               <Supporter
-                src="/logos/Barnard.webp"
+                src={asset("logos/Barnard.webp")}
                 alt="Barnard College"
                 className="max-h-[130px]"
               />
               <Supporter
-                src="/logos/Claude.png"
+                src={asset("logos/Claude.png")}
                 alt="Claude by Anthropic"
                 className="max-h-[300px]"
               />

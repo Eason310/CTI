@@ -20,7 +20,39 @@ export const posts = [
     readTime: "5 min read",
     hero: null,
     content: [
-      "Hi",
+      {
+        type: "p",
+        text:
+          "There was a moment, not long ago, when the bright-orange Rabbit R1 dazzled the CES 2024 show floor. It billed itself as the device that would replace all your apps, becoming a smart intermediary between you and your phone."
+      },
+      {
+        type: "p",
+        text:
+          "A year later, the once-hyped startup behind it is mired in pay freezes, walkouts, and a rapidly deteriorating reputation."
+      },
+
+      // Big numbered section title (like “01 The First-Mover’s Dilemma”)
+      {
+        type: "sectionTitle",
+        number: "01",
+        title: "The First-Mover’s Dilemma"
+      },
+
+      {
+        type: "p",
+        text:
+          "If you followed last year’s Consumer Electronics Show, you probably remember that orange cube and the little white rabbit logo. Priced at $199, the Rabbit R1 promised to handle tasks, answer questions, identify objects, translate speech in real time, even place orders on your behalf."
+      },
+
+      // Paragraph with emphasis (bold phrases)
+      {
+        type: "p",
+        parts: [
+          { text: "Post-CES, social media exploded with excitement. Many hailed it as “the most likely device to change user behavior after the iPhone.” " },
+          { text: "It sold 50,000 units in just two weeks", bold: true },
+          { text: ", buoyed by attention and an early check from Amazon co-founder Joe Gebbia, despite ongoing internet debates about the founder Jesse Lyu’s resume." }
+        ]
+      }
     ],
   },
   {
