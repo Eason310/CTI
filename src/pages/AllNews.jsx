@@ -14,7 +14,7 @@ function Chip({ active, children, onClick }) {
       className={
         "rounded-full border px-3 py-1 text-sm transition " +
         (active
-          ? "border-black bg-black text-white"
+          ? "border-[#4AC3FF] bg-[#4AC3FF] text-white"
           : "border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50")
       }
       type="button"
@@ -82,7 +82,10 @@ export default function AllNews() {
       <main>
         <Container>
           <div className="py-8">
-            <h1 className="text-3xl font-semibold tracking-tight">All News</h1>
+            <h1 className="font-plexmono text-[36px] font-bold tracking-tight">
+              All News
+            </h1>
+
             <p className="mt-2 text-sm text-zinc-600">
               Browse everything we’ve published.
             </p>
