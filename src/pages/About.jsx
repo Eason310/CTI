@@ -26,9 +26,11 @@ export default function About() {
         <section className="py-20">
           <Container>
             <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-5xl font-bold tracking-tight">About CTI</h1>
+              <h1 className="font-plexmono text-[36px] font-bold tracking-tight">
+                About CTI
+              </h1>
 
-              <div className="mt-4 text-lg font-semibold text-blue-600">
+              <div className="mt-4 font-plexmono text-[24px] font-semibold text-blue-600">
                 Est. 2025
               </div>
 
