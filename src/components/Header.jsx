@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams } from "react-router-dom"
+import { Link, useNavigate, useSearchParams, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa"
 
@@ -6,9 +6,20 @@ function Container({ children }) {
   return <div className="mx-auto max-w-6xl px-4">{children}</div>
 }
 
-function NavLink({ to, children }) {
+function NavChip({ to, children }) {
+  const { pathname } = useLocation()
+  const active = pathname === to
+
   return (
-    <Link to={to} className="text-sm text-zinc-700 hover:text-black">
+    <Link
+      to={to}
+      className={
+        "rounded-full border px-3 py-1 text-sm transition " +
+        (active
+          ? "border-[#4AC3FF] bg-[#4AC3FF] text-white"
+          : "border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50")
+      }
+    >
       {children}
     </Link>
   )
@@ -33,9 +44,10 @@ export default function Header() {
   return (
     <header className="border-b border-zinc-200 bg-white text-zinc-900">
       <Container>
+        {/* Top row */}
         <div className="flex items-start justify-between py-6">
           <div>
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight">
+            <h1 className="font-plexmono text-3xl font-semibold leading-tight tracking-tight">
               Columbia <br /> Technology <br /> Insight
             </h1>
             <p className="mt-2 text-sm text-zinc-600">
@@ -67,11 +79,12 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Nav + search */}
         <div className="flex flex-col gap-3 pb-4 md:flex-row md:items-center md:justify-between">
-          <nav className="flex gap-6">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/news">All News</NavLink>
-            <NavLink to="/about">About</NavLink>
+          <nav className="flex gap-2">
+            <NavChip to="/">Home</NavChip>
+            <NavChip to="/news">All News</NavChip>
+            <NavChip to="/about">About</NavChip>
           </nav>
 
           <form onSubmit={onSubmit} className="w-full md:w-auto">
