@@ -48,12 +48,12 @@ export default function Footer() {
         <div className="grid gap-12 py-16 md:grid-cols-2 md:items-start">
           {/* Newsletter */}
           <div>
-            <h3 className="font-plexmono text-[36px] font-semibold leading-tight">
+            <h3 className="font-plexmono text-[28px] font-semibold leading-tight">
               Subscribe to Our Newsletter
             </h3>
 
             <form onSubmit={submit} className="mt-10 max-w-xl">
-              <label className="block font-plexmono text-[20px] font-medium">
+              <label className="block font-plexmono text-[18px] font-medium">
                 What’s Your Email?
               </label>
 
