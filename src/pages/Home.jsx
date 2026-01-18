@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
 import { getPostsBySection } from "../data/posts"
 import Layout from "../components/Layout"
 
@@ -7,53 +6,6 @@ import Layout from "../components/Layout"
 
 function Container({ children }) {
   return <div className="mx-auto max-w-6xl px-4">{children}</div>
-}
-
-/* -------------------- Banner -------------------- */
-
-function Banner() {
-  const [open, setOpen] = useState(true)
-  if (!open) return null
-
-  return (
-    <div className="bg-zinc-500/60 py-3">
-      <Container>
-        <div className="relative flex items-center justify-center bg-sky-400 py-3">
-          <p className="text-xs text-white">
-            Hunting for the Next Tech Alpha at Columbia.
-          </p>
-
-          <button
-            className="ml-6 bg-white px-7 py-1.5 text-xs font-medium text-sky-600 hover:bg-zinc-50"
-            onClick={() => {
-              // connect to subscribe later
-            }}
-          >
-            Subscribe
-          </button>
-
-          <button
-            aria-label="Close banner"
-            onClick={() => setOpen(false)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/90 hover:text-white"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-            >
-              <path d="M18 6 6 18" />
-              <path d="M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </Container>
-    </div>
-  )
 }
 
 /* -------------------- Section UI -------------------- */
@@ -93,6 +45,7 @@ function FeatureCard({ post }) {
     <Link to={`/article/${post.slug}`} className="group block">
       <div className="rounded-2xl bg-white">
         <div className="aspect-square w-full rounded-2xl bg-zinc-100" />
+
         <div className="mt-3">
           <div className="flex items-center gap-2 text-[11px] text-zinc-500">
             <div className="h-6 w-6 rounded-full bg-zinc-200" />
@@ -136,7 +89,9 @@ function ListRow({ post }) {
           {post.title}
         </h3>
 
-        <div className="mt-2 text-[11px] text-zinc-400">Summary</div>
+        <div className="mt-2 text-[11px] text-zinc-400">
+          Summary
+        </div>
       </div>
     </Link>
   )
@@ -151,12 +106,10 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Banner ABOVE header */}
-      <Banner />
-
       <main>
         <Container>
           <div className="py-10">
+            {/* Latest News */}
             <section>
               <SectionHeader
                 title="Latest News"
@@ -169,6 +122,7 @@ export default function Home() {
               </div>
             </section>
 
+            {/* Opinions */}
             <section className="mt-12">
               <SectionHeader title="Opinions" to="/news?section=Opinion" />
               <div className="grid gap-8 md:grid-cols-2">
@@ -178,6 +132,7 @@ export default function Home() {
               </div>
             </section>
 
+            {/* Campus Innovations */}
             <section className="mt-14">
               <SectionHeader
                 title="Campus Innovations"

@@ -1,8 +1,14 @@
-// put this inside Home.jsx (or move to components/Banner.jsx)
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-function Banner() {
-  const [open, setOpen] = useState(true)
+export default function Banner() {
+  const [open, setOpen] = useState(() => {
+    return localStorage.getItem("cti_banner_closed") !== "1"
+  })
+
+  useEffect(() => {
+    if (!open) localStorage.setItem("cti_banner_closed", "1")
+  }, [open])
+
   if (!open) return null
 
   return (
@@ -17,7 +23,7 @@ function Banner() {
             type="button"
             className="ml-6 bg-white px-7 py-1.5 text-xs font-medium text-sky-600 hover:bg-zinc-50"
             onClick={() => {
-              // hook up your subscribe action here
+              // TODO: hook to your subscribe flow
             }}
           >
             Subscribe
