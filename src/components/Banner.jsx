@@ -15,7 +15,7 @@ export default function Banner() {
       {/* Centered content */}
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-center py-3">
-          <p className="text-[13px] text-white">
+          <p className="text-[16px] text-white">
             Hunting for the Next Tech Alpha at Columbia.
           </p>
 
@@ -41,7 +41,7 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* Close button (session-only) */}
+      {}
       <button
         type="button"
         aria-label="Close banner"
