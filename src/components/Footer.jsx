@@ -47,8 +47,9 @@ export default function Footer() {
       <Container>
         <div className="grid gap-12 py-16 md:grid-cols-2 md:items-start">
           {/* Newsletter */}
-          <div>
+          <div id="newsletter">
             <h3 className="font-plexmono text-[28px] font-semibold leading-tight">
+
               Subscribe to Our Newsletter
             </h3>
 

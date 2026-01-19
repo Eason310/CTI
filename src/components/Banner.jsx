@@ -1,44 +1,56 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export default function Banner() {
-  const [open, setOpen] = useState(() => {
-    return localStorage.getItem("cti_banner_closed") !== "1"
-  })
+  // permanently hide if already subscribed
+  const isSubscribed =
+    typeof window !== "undefined" &&
+    localStorage.getItem("cti_subscribed") === "1"
 
-  useEffect(() => {
-    if (!open) localStorage.setItem("cti_banner_closed", "1")
-  }, [open])
+  const [open, setOpen] = useState(!isSubscribed)
 
   if (!open) return null
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 bg-sky-400 border-b border-black/10">
-      {}
+      {/* Centered content */}
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-center py-3">
-          <p className="text-[14px] text-white">
+          <p className="text-[13px] text-white">
             Hunting for the Next Tech Alpha at Columbia.
           </p>
 
           <button
             type="button"
-            className="ml-6 bg-white px-7 py-1.5 text-xs font-medium text-sky-600 hover:bg-zinc-50"
+            className="ml-6 rounded bg-white px-7 py-1.5 text-[12px] font-medium text-sky-600 hover:bg-zinc-50"
+            onClick={() => {
+              // mark as subscribed
+              localStorage.setItem("cti_subscribed", "1")
+
+              // hide banner
+              setOpen(false)
+
+              // scroll to footer newsletter
+              const el = document.getElementById("newsletter")
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" })
+              }
+            }}
           >
             Subscribe
           </button>
         </div>
       </div>
 
-      {/* CLOSE BUTTON — FULL WIDTH POSITIONING */}
+      {/* Close button (session-only) */}
       <button
         type="button"
         aria-label="Close banner"
         onClick={() => setOpen(false)}
-        className="absolute right-6 top-1/2 -translate-y-1/2 text-white/90 hover:text-white"
+        className="absolute right-6 top-1/2 -translate-y-1/2 p-2 text-white/90 hover:text-white"
       >
         <svg
-          width="26"
-          height="26"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
