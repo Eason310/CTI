@@ -9,13 +9,14 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 flex flex-col">
-      {/* Banner ONLY on Home */}
       {isHome && <Banner />}
 
-      <Header />
+      {}
+      <div className={isHome ? "pt-12" : ""}>
+        <Header />
+      </div>
 
       <div className="flex-1">{children}</div>
-
       <Footer />
     </div>
   )

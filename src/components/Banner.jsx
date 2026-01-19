@@ -12,9 +12,9 @@ export default function Banner() {
   if (!open) return null
 
   return (
-    <div className="bg-zinc-500/60 py-3">
+    <div className="fixed inset-x-0 top-0 z-50 bg-sky-400 border-b border-black/10">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="relative flex items-center justify-center bg-sky-400 py-3">
+        <div className="relative flex items-center justify-center py-3">
           <p className="text-xs text-white">
             Hunting for the Next Tech Alpha at Columbia.
           </p>
@@ -23,7 +23,7 @@ export default function Banner() {
             type="button"
             className="ml-6 bg-white px-7 py-1.5 text-xs font-medium text-sky-600 hover:bg-zinc-50"
             onClick={() => {
-              // TODO: hook to your subscribe flow
+              // TODO: hook up subscribe
             }}
           >
             Subscribe
@@ -33,7 +33,7 @@ export default function Banner() {
             type="button"
             aria-label="Close banner"
             onClick={() => setOpen(false)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/90 hover:text-white"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-white/90 hover:text-white"
           >
             <svg
               width="26"
