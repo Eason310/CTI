@@ -21,7 +21,7 @@ export default function Banner() {
 
           <button
             type="button"
-            className="ml-6 rounded bg-white px-7 py-1.5 text-[12px] font-medium text-sky-600 hover:bg-zinc-50"
+            className="ml-6 rounded bg-white px-7 py-1.5 text-[16px] font-medium text-sky-600 hover:bg-zinc-50"
             onClick={() => {
               // mark as subscribed
               localStorage.setItem("cti_subscribed", "1")
