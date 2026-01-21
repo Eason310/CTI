@@ -28,7 +28,7 @@ function FeatureCard({ post }) {
       className="group block flex-none"
       style={{ width: 480 }}
     >
-      <div className="relative h-[480px] w-[480px] overflow-hidden rounded-2xl bg-zinc-200">
+      <div className="relative h-[360px] w-[360px] overflow-hidden rounded-2xl bg-zinc-200">
         {/* Image (placeholder for now) */}
         <div className="absolute inset-0 bg-zinc-400" />
 
