@@ -21,25 +21,6 @@ function SectionHeader({ title, to }) {
   )
 }
 
-function MiniCard({ post }) {
-  return (
-    <Link
-      to={`/article/${post.slug}`}
-      className="flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-3 hover:bg-zinc-50"
-    >
-      <div className="h-10 w-10 rounded-lg bg-zinc-100" />
-      <div className="min-w-0">
-        <h3 className="line-clamp-1 text-xs font-semibold">
-          {post.title}
-        </h3>
-        <div className="mt-1 text-[11px] text-zinc-500">
-          {post.author} • {post.date} • {post.readTime}
-        </div>
-      </div>
-    </Link>
-  )
-}
-
 function FeatureCard({ post }) {
   return (
     <Link to={`/article/${post.slug}`} className="group block">
@@ -109,15 +90,15 @@ export default function Home() {
       <main>
         <Container>
           <div className="py-10">
-            {/* Latest News */}
+            {/* Latest News — MATCHES Campus Innovations */}
             <section>
               <SectionHeader
                 title="Latest News"
                 to="/news?section=Latest%20News"
               />
-              <div className="grid gap-3 md:grid-cols-3">
+              <div className="space-y-6">
                 {latest.map((p) => (
-                  <MiniCard key={p.slug} post={p} />
+                  <ListRow key={p.slug} post={p} />
                 ))}
               </div>
             </section>
