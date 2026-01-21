@@ -4,12 +4,23 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        plexmono: [
-          '"IBM Plex Mono"',
+        mono: [
+          "IBM Plex Mono",
           "ui-monospace",
           "SFMono-Regular",
           "Menlo",
           "monospace",
+        ],
+        sans: [
+          "SF Pro Display",
+          "SF Pro Text",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Arial",
+          "sans-serif",
         ],
       },
     },

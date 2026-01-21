@@ -28,32 +28,39 @@ function FeatureCard({ post }) {
       className="group block flex-none"
       style={{ width: 480 }}
     >
-      <div className="rounded-2xl bg-white">
-        {/* 480 x 480 image block */}
-        <div
-          className="w-[480px] h-[480px] rounded-2xl bg-zinc-100"
-          aria-hidden="true"
-        />
+      <div className="relative h-[480px] w-[480px] overflow-hidden rounded-2xl bg-zinc-200">
+        {/* Image (placeholder for now) */}
+        <div className="absolute inset-0 bg-zinc-400" />
 
-        <div className="mt-3">
-          <div className="flex items-center gap-2 text-[11px] text-zinc-500">
-            <div className="h-6 w-6 rounded-full bg-zinc-200" />
-            <div>
-              <div className="text-zinc-700">{post.author}</div>
-              <div className="text-zinc-400">
-                {post.date} • {post.readTime}
-              </div>
+        {/* Optional dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/25" />
+
+        {/* Top meta */}
+        <div className="absolute left-6 top-6 right-6 flex items-start gap-3">
+          <div className="h-10 w-10 rounded-full bg-white/40" />
+          <div className="font-sans text-[16px] leading-tight text-[#E8E8E8]">
+            <div className="text-white">{post.author}</div>
+            <div className="opacity-90">
+              {post.date} {post.readTime ? ` ${post.readTime}` : ""}
             </div>
           </div>
+        </div>
 
-          <h3 className="mt-3 text-sm font-semibold group-hover:underline">
+        {/* Bottom text */}
+        <div className="absolute left-6 right-6 bottom-6">
+          <h3 className="font-mono text-[24px] leading-tight text-white">
             {post.title}
           </h3>
+
+          <div className="mt-3 font-sans text-[16px] text-[#E8E8E8]">
+            Summary
+          </div>
         </div>
       </div>
     </Link>
   )
 }
+
 
 
 function ListRow({ post }) {
