@@ -23,9 +23,17 @@ function SectionHeader({ title, to }) {
 
 function FeatureCard({ post }) {
   return (
-    <Link to={`/article/${post.slug}`} className="group block">
+    <Link
+      to={`/article/${post.slug}`}
+      className="group block flex-none"
+      style={{ width: 480 }}
+    >
       <div className="rounded-2xl bg-white">
-        <div className="aspect-square w-full rounded-2xl bg-zinc-100" />
+        {/* 480 x 480 image block */}
+        <div
+          className="w-[480px] h-[480px] rounded-2xl bg-zinc-100"
+          aria-hidden="true"
+        />
 
         <div className="mt-3">
           <div className="flex items-center gap-2 text-[11px] text-zinc-500">
@@ -46,6 +54,7 @@ function FeatureCard({ post }) {
     </Link>
   )
 }
+
 
 function ListRow({ post }) {
   return (
@@ -103,15 +112,21 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Opinions */}
+            {/* Opinions (horizontal scroll, 480x480 cards) */}
             <section className="mt-12">
               <SectionHeader title="Opinions" to="/news?section=Opinion" />
-              <div className="grid gap-8 md:grid-cols-2">
-                {opinions.map((p) => (
-                  <FeatureCard key={p.slug} post={p} />
-                ))}
+
+              <div className="-mx-4 px-4 overflow-x-auto">
+                <div className="flex gap-6 snap-x snap-mandatory pb-3">
+                  {opinions.map((p) => (
+                    <div key={p.slug} className="snap-start">
+                      <FeatureCard post={p} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
+
 
             {/* Campus Innovations */}
             <section className="mt-14">
