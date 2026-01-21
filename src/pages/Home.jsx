@@ -8,7 +8,6 @@ function Container({ children }) {
   return <div className="mx-auto max-w-6xl px-4">{children}</div>
 }
 
-/* -------------------- Section UI -------------------- */
 
 function SectionHeader({ title, to }) {
   return (
@@ -26,33 +25,37 @@ function FeatureCard({ post }) {
     <Link
       to={`/article/${post.slug}`}
       className="group block flex-none"
-      style={{ width: 480 }}
+      style={{ width: 360 }}
     >
-      <div className="relative h-[360px] w-[360px] overflow-hidden rounded-2xl bg-zinc-200">
-        {/* Image (placeholder for now) */}
-        <div className="absolute inset-0 bg-zinc-400" />
+      <div className="relative h-[360px] w-[360px] overflow-hidden bg-zinc-200">
+        {/* Random image for testing */}
+        <img
+          src={`https://picsum.photos/360/360?random=${post.slug}`}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        {/* Optional dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/25" />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/35" />
 
         {/* Top meta */}
-        <div className="absolute left-6 top-6 right-6 flex items-start gap-3">
-          <div className="h-10 w-10 rounded-full bg-white/40" />
-          <div className="font-sans text-[16px] leading-tight text-[#E8E8E8]">
+        <div className="absolute left-5 top-5 right-5 flex items-start gap-3">
+          <div className="h-9 w-9 rounded-full bg-white/40" />
+          <div className="font-sans text-[14px] leading-tight text-[#E8E8E8]">
             <div className="text-white">{post.author}</div>
-            <div className="opacity-90">
-              {post.date} {post.readTime ? ` ${post.readTime}` : ""}
+            <div>
+              {post.date} • {post.readTime}
             </div>
           </div>
         </div>
 
-        {/* Bottom text */}
-        <div className="absolute left-6 right-6 bottom-6">
-          <h3 className="font-mono text-[24px] leading-tight text-white">
+        {/* Bottom title */}
+        <div className="absolute left-5 right-5 bottom-5">
+          <h3 className="font-mono text-[22px] leading-tight text-white">
             {post.title}
           </h3>
 
-          <div className="mt-3 font-sans text-[16px] text-[#E8E8E8]">
+          <div className="mt-2 font-sans text-[14px] text-[#E8E8E8]">
             Summary
           </div>
         </div>
@@ -60,7 +63,6 @@ function FeatureCard({ post }) {
     </Link>
   )
 }
-
 
 
 function ListRow({ post }) {
