@@ -35,10 +35,10 @@ function FeatureCard({ post }) {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Dark overlay for readability */}
+        {}
         <div className="absolute inset-0 bg-black/35" />
 
-        {/* Top meta */}
+        {}
         <div className="absolute left-5 top-5 right-5 flex items-start gap-3">
           <div className="h-9 w-9 rounded-full bg-white/40" />
           <div className="font-sans text-[14px] leading-tight text-[#E8E8E8]">
@@ -49,7 +49,7 @@ function FeatureCard({ post }) {
           </div>
         </div>
 
-        {/* Bottom title */}
+        {}
         <div className="absolute left-5 right-5 bottom-5">
           <h3 className="font-mono text-[22px] leading-tight text-white">
             {post.title}
