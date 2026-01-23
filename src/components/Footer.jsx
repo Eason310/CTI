@@ -54,8 +54,8 @@ export default function Footer() {
             </h3>
 
             <form onSubmit={submit} className="mt-10 max-w-xl">
-              <label className="block font-plexmono text-[18px] font-medium">
-                What’s Your Email?
+              <label className="block font-plexmono text-[16px] font-medium">
+                What's Your Email?
               </label>
 
               <input
@@ -74,7 +74,7 @@ export default function Footer() {
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
                     required
-                    className="h-4 w-4 rounded border-zinc-300"
+                    className="h-4 w-4 rounded border-zinc-300 accent-[#4AC3FF]"
                   />
                   Yes, subscribe me to your newsletter.
                 </label>
@@ -82,7 +82,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-fit rounded-full bg-[#4AC3FF] px-8 py-3 text-[16px] font-medium text-white transition hover:opacity-90 disabled:opacity-60"
+                  className="w-fit bg-[#4AC3FF] px-8 py-3 text-[16px] font-medium text-white transition hover:opacity-90 disabled:opacity-60"
                 >
                   {status === "sending" ? "Submitting..." : "Subscribe"}
                 </button>
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Links */}
           <div className="md:flex md:justify-end">
-            <nav className="space-y-4 font-plexmono text-[20px] font-medium">
+            <nav className="space-y-4 font-plexmono text-[16px] font-medium">
               <Link className="block hover:text-[#4AC3FF]" to="/">
                 Home
               </Link>
